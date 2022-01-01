@@ -95,45 +95,6 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('showTime={{ showHour: true, showSecond: true }}', () => {
-    const wrapper = mount(
-      <DatePicker
-        defaultValue={moment()}
-        showTime={{ showHour: true, showSecond: true }}
-        format="YYYY-MM-DD"
-        open
-      />,
-    );
-    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(2);
-    expect(
-      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
-        .length,
-    ).toBe(24);
-    expect(
-      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
-        .length,
-    ).toBe(60);
-  });
-
-  it('showTime={{ showMinute: true, showSecond: true }}', () => {
-    const wrapper = mount(
-      <DatePicker
-        defaultValue={moment()}
-        showTime={{ showMinute: true, showSecond: true }}
-        format="YYYY-MM-DD"
-        open
-      />,
-    );
-    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(2);
-    expect(
-      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
-        .length,
-    ).toBe(60);
-    expect(
-      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
-        .length,
-    ).toBe(60);
-  });
   it('showTime should work correctly when format is custom function', () => {
     const wrapper = mount(
       <DatePicker defaultValue={moment()} showTime format={val => val.format('YYYY-MM-DD')} open />,
